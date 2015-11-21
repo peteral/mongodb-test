@@ -24,12 +24,17 @@ simulate = function(pv, day) {
 
 // actual value every 3 minutes
 // other types once an hour
-// 1 day = (24*20 + 5*24) * 40 * 100 = 2.4 Mio
+// 1 day = (24*20 + 5*24) * 40 * 100 = 2.4 Mio = 200 MB
+// 60 days should be about 200 * 60 = 12 GB
 var cursor = db.pvs.find();
 
 while (cursor.hasNext()) {
   var pv = cursor.next()
 
-  // TODO simulate multiple days
-  simulate(pv, new Date())
+  var ts = new Date().getTime()
+  for (i = 0; i<DAYS; i++) {
+    simulate(pv, new Date(ts))
+
+    ts += 24 * 3600 * 1000
+  }
 }
