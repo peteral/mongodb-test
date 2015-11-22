@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<MongoDbDataAdapter class="com.jaspersoft.mongodb.adapter.MongoDbDataAdapterImpl"><name>Process values</name><mongoURI>mongodb://localhost:27017/processValues</mongoURI><username></username><password></password></MongoDbDataAdapter>
