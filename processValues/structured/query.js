@@ -1,6 +1,6 @@
 db = new Mongo().getDB("processValues");
 
-var pv = db.pvs.find({plc_name : "PLC20", device_name : "Device-20", type : "actual"}).next()
+var pv = db.pvs.find({plc_name : "PLC21", device_name : "Device-20", type : "actual"}).next()
 
 var fromTs = new Date(2015, 11, 21)
 var toTs = new Date(2015,11,21,10)
