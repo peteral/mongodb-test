@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2015-11-22T11:49:07 -->
+<!-- 2015-11-28T15:24:25 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c46a1cc5-4525-4778-9f9c-8c4d10bbddd7">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="datasource.xml"/>
 	<parameter name="StartDate" class="java.util.Date">
-		<defaultValueExpression><![CDATA[DATE(2015, 11, 21)]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA[DATE(2015, 11, 28)]]></defaultValueExpression>
 	</parameter>
 	<parameter name="EndDate" class="java.util.Date">
-		<defaultValueExpression><![CDATA[DATE(2015, 11, 22)]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA[DATE(2015, 11, 29)]]></defaultValueExpression>
 	</parameter>
 	<parameter name="pvid" class="java.lang.String">
-		<defaultValueExpression><![CDATA["5650b83402aa9cd125bbe6f0"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["5658b5bccf0e4cd3da0a7644"]]></defaultValueExpression>
 	</parameter>
 	<queryString language="MongoDbQuery">
 		<![CDATA[{
@@ -24,7 +25,7 @@
 	<field name="ts" class="java.sql.Timestamp"/>
 	<field name="value" class="java.lang.Double"/>
 	<title>
-		<band height="50">
+		<band height="488">
 			<textField>
 				<reportElement x="10" y="0" width="100" height="30" uuid="0540071c-dc19-4d02-88ea-ea3269115a6a"/>
 				<textFieldExpression><![CDATA[$P{StartDate}]]></textFieldExpression>
@@ -33,44 +34,38 @@
 				<reportElement x="180" y="0" width="100" height="30" uuid="30ee11e8-0bd9-40b8-bbdf-ae30ead8583a"/>
 				<textFieldExpression><![CDATA[$P{EndDate}]]></textFieldExpression>
 			</textField>
+			<lineChart>
+				<chart evaluationTime="Report">
+					<reportElement x="8" y="39" width="542" height="441" uuid="ec892ead-b85b-4c4a-b9b3-86dbb6714c2c"/>
+					<chartTitle>
+						<font fontName="DejaVu Sans Mono"/>
+					</chartTitle>
+					<chartSubtitle>
+						<font fontName="DejaVu Sans"/>
+					</chartSubtitle>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Actual value"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{ts}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{value}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot isShowShapes="false">
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat>
+							<tickLabelFont>
+								<font fontName="DejaVu Sans"/>
+							</tickLabelFont>
+						</axisFormat>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
 		</band>
 	</title>
-	<columnHeader>
-		<band height="38" splitType="Stretch">
-			<staticText>
-				<reportElement x="0" y="0" width="180" height="30" uuid="ddd091c8-26e1-4cdf-b06c-5570c6362b5c"/>
-				<textElement>
-					<font size="16" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ts]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="180" y="0" width="100" height="30" uuid="1eb38118-abf7-4a42-a0e8-d4031ff03d47"/>
-				<textElement>
-					<font size="16" isBold="true"/>
-				</textElement>
-				<text><![CDATA[value]]></text>
-			</staticText>
-		</band>
-	</columnHeader>
-	<detail>
-		<band height="18" splitType="Stretch">
-			<textField>
-				<reportElement x="0" y="0" width="180" height="16" uuid="a0acd85e-2a9c-4cbf-b905-dfd8cdebcc84">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-				</reportElement>
-				<box>
-					<bottomPen lineWidth="1.0"/>
-				</box>
-				<textFieldExpression><![CDATA[$F{ts}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="180" y="0" width="100" height="16" uuid="7026e236-1a3a-4055-a89e-80a903d40a54"/>
-				<box>
-					<bottomPen lineWidth="1.0"/>
-				</box>
-				<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
-			</textField>
-		</band>
-	</detail>
 </jasperReport>

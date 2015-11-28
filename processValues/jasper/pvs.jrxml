@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2015-11-22T10:55:14 -->
+<!-- 2015-11-28T15:09:09 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pvs" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b03d85ff-c1a0-4b5a-93a6-658be89deb75">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="datasource.xml"/>
 	<queryString language="MongoDbQuery">
@@ -53,10 +53,14 @@
 				</textElement>
 				<text><![CDATA[unit]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="30" uuid="c37493e7-4ce7-46ab-b81c-55ef796b3cd3"/>
+				<text><![CDATA[_id]]></text>
+			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="21" splitType="Stretch">
+		<band height="37" splitType="Stretch">
 			<textField>
 				<reportElement x="0" y="0" width="100" height="16" uuid="56217cdb-1f54-4667-b26a-2cadc3359aac">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
@@ -98,6 +102,10 @@
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textFieldExpression><![CDATA[$F{unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="160" height="16" uuid="25c1b1b5-475e-4e95-83ed-44224dc7b5b0"/>
+				<textFieldExpression><![CDATA[$F{_id}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
