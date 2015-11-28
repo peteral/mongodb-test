@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2015-11-28T16:37:32 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pvInfo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe4ecfe7-47d0-4503-9b38-1d89039aec4d">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="datasource.xml"/>
+	<parameter name="pvid" class="java.lang.String">
+		<defaultValueExpression><![CDATA["5658b5bccf0e4cd3da0a7644"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="MongoDbQuery">
+		<![CDATA[{
+  collectionName : "pvs",
+  findQuery : {
+    _id : { $oid : $P{pvid} }
+  }
+}]]>
+	</queryString>
+	<field name="translation_en" class="java.lang.String"/>
+	<field name="sensor" class="java.lang.String"/>
+	<field name="unit" class="java.lang.String"/>
+	<field name="plc_name" class="java.lang.String"/>
+	<field name="plc_translation_en" class="java.lang.String"/>
+	<field name="device_name" class="java.lang.String"/>
+	<field name="device_translation_en" class="java.lang.String"/>
+	<field name="cabinet" class="java.lang.String"/>
+	<title>
+		<band height="105" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="44" width="100" height="20" uuid="02b08923-cb49-47cb-a2e0-2c5df3dcb189">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Device]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="44" width="380" height="20" uuid="f46b91fd-dd80-43fa-a997-68b6bd42078d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{device_name} + " (" +$F{device_translation_en} + ")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="64" width="100" height="20" uuid="061c16fa-b5f2-4df2-a1e4-9dd252c38d38">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sensor]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="64" width="380" height="20" uuid="df387a4a-588e-4687-ab4a-4d079a31f04b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sensor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="2" width="100" height="20" uuid="698ab0c0-49fb-4adc-9c6c-5a7810f6821d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PLC]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="2" width="380" height="20" uuid="90a57d81-c3fc-445e-abde-e3ee338d4848">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{plc_name} + " (" + $F{plc_translation_en} + ")"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="22" width="100" height="20" uuid="3ab2c79e-301d-482e-a686-0800468569ce">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cabinet]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="22" width="380" height="20" uuid="fa43b19a-b823-4aac-b2b7-26009af724f0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cabinet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="84" width="100" height="20" uuid="70d20fab-dc57-46eb-9dbf-3d7e51873f9a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Value]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="84" width="380" height="20" uuid="7ca64e41-15bf-495d-bd93-3fd7065a0372">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{translation_en} + " [" + $F{unit} + "]"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>
