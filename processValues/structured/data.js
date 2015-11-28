@@ -11,11 +11,9 @@ simulate = function(pv, day) {
   var stepInMinutes = ("actual".localeCompare(pv.type) == 0 ? 3 : 60)
 
   var ts = new Date(day.getFullYear(), day.getMonth(), day.getDate())
-  print("Generating " + pv.variable + " [" + ts + "] every " + stepInMinutes + " [min]")
 
   var ts = ts.getTime();
   var endOfDay = ts + 24*60*60*1000;
-
 
   for (; ts < endOfDay; ts += stepInMinutes*60*1000) {
     db.values.insert({ "ts" : new Date(ts), "pv" : pv._id, value : Math.random() * 1000 })
@@ -30,6 +28,7 @@ var cursor = db.pvs.find();
 
 while (cursor.hasNext()) {
   var pv = cursor.next()
+  print("Generating " + pv.variable)
 
   var ts = new Date().getTime()
   for (i = 0; i<DAYS; i++) {
