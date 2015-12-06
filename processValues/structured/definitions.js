@@ -11,6 +11,7 @@ var DEVICE_COUNT = 40
 for (i = 1; i <= PLC_COUNT; i++) {
   for (j = 1; j <= DEVICE_COUNT; j++) {
     var actual = {
+      _id : ObjectId(),
       variable : "PLC"+i+":PV.S01.Device-"+j+".PV[0]",
       type : "actual",
       translation_cn : "体温",
